@@ -35,9 +35,9 @@ public class PlayerInfo{
     public static PlayerInfo fromJSONObject(JSONObject data){
         String avatar = data.getString("avatar");
         HashMap<String,String> badges = new HashMap<String,String>();
-        JSONArray badges = data.getJSONArray("badges");
-        for(int i = 0; i < badges.length(); i++){
-            JSONObject badge = badges.getJSONObject(i);
+        JSONArray badges_ = data.getJSONArray("badges");
+        for(int i = 0; i < badges_.length(); i++){
+            JSONObject badge = badges_.getJSONObject(i);
             badges.put(badge.getString("image"), badge.getString("description"));
         }
         boolean banned = data.getInt("banned") == 1;
