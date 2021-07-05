@@ -1,20 +1,25 @@
-import org.json.simple.JSONObject;
-import org.json.simple.JSONArray;
+package it.claudiodemarzo.Objects;
+
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.HashMap;
 
 public class PlayerInfo{
-    private String avatar;
-    private HashMap<String,String> badges;
-    private boolean banned;
-    private String country;
-    private int countryRank;
-    private int[] history;
-    private boolean inactive;
-    private int permissions;
-    private String playerId;
-    private String playerName;
-    private double pp;
-    private int rank;
-    private String role;
+    private final String avatar;
+    private final HashMap<String,String> badges;
+    private final boolean banned;
+    private final String country;
+    private final int countryRank;
+    private final int[] history;
+    private final boolean inactive;
+    private final int permissions;
+    private final String playerId;
+    private final String playerName;
+    private final double pp;
+    private final int rank;
+    private final String role;
 
     private PlayerInfo(String avatar, HashMap<String,String> badges, boolean banned, String country, int countryRank, int[] history, boolean inactive, int permissions, String playerId, String playerName, double pp, int rank, String role){
         this.avatar = avatar;
@@ -43,8 +48,12 @@ public class PlayerInfo{
         boolean banned = data.getInt("banned") == 1;
         String country = data.getString("country");
         int countryRank = data.getInt("countryRank");
-        int[] history = data.getString("history").split(",");
-        int inactive = data.getInt("inactive") == 1;
+        String[] history_= data.getString("history").split(",");
+        int[] history = new int[history_.length];
+        for(int i = 0; i < history_.length; i++){
+            history[i] = Integer.parseInt(history_[i]);
+        }
+        boolean inactive = data.getInt("inactive") == 1;
         int permissions = data.getInt("permissions");
         String playerId = data.getString("playerId");
         String playerName = data.getString("playerName");

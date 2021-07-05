@@ -1,19 +1,20 @@
-import org.json.simple.JSONObject;
-import org.json.simple.JSONArray;
+package it.claudiodemarzo.Objects;
+
+import org.json.JSONObject;
 
 public class ScoreStats {
-    private float averageRankedAccuracy;
-    private int rankedPlayCount;
-    private int totalPlayCount;
-    private int totalRankedScore;
-    private int totalScore;
+    private final float averageRankedAccuracy;
+    private final int rankedPlayCount;
+    private final int totalPlayCount;
+    private final int totalRankedScore;
+    private final int totalScore;
 
     private ScoreStats(float averageRankedAccuracy, int rankedPlayCount, int totalPlayCount, int totalRankedScore, int totalScore){
         this.averageRankedAccuracy = averageRankedAccuracy;
-        this.rankedgPlayCount = rankedPlayCount;
+        this.rankedPlayCount = rankedPlayCount;
         this.totalPlayCount = totalPlayCount;
         this.totalRankedScore = totalRankedScore;
-        int totalScore = totalScore;
+        this.totalScore = totalScore;
     }
 
     public static ScoreStats fromJSONObject(JSONObject data) {
